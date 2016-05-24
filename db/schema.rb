@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524095222) do
+ActiveRecord::Schema.define(version: 20160524100827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20160524095222) do
     t.string   "document_content_type"
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
+    t.integer  "address_id"
+    t.index ["address_id"], name: "index_jobs_on_address_id", using: :btree
     t.index ["user_id"], name: "index_jobs_on_user_id", using: :btree
   end
 
@@ -64,9 +66,13 @@ ActiveRecord::Schema.define(version: 20160524095222) do
     t.text     "notes"
     t.string   "skills"
     t.boolean  "admin"
+    t.integer  "address_id"
+    t.index ["address_id"], name: "index_users_on_address_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "jobs", "addresses"
   add_foreign_key "jobs", "users"
+  add_foreign_key "users", "addresses"
 end
