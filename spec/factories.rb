@@ -1,4 +1,3 @@
-# This will guess the User class
 FactoryGirl.define do
   factory :user do
     email "John@test.com"
@@ -6,10 +5,18 @@ FactoryGirl.define do
     admin false
   end
 
-  # This will use the User class (Admin would have been guessed)
   factory :admin, class: User do
-    first_name "Admin@test.com"
+    email "Admin@test.com"
     password "password"
     admin      true
   end
+
+  factory :job, class: Job do
+    title "big house"
+    date (Time.now + 1)
+    complete false
+    user
+    description "this place needs a lot of work done to it check it out"
+  end
 end
+#
