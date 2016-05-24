@@ -1,6 +1,7 @@
 FactoryGirl.define do
-  factory :user do
+  factory :user, class: User do
     email "John@test.com"
+    name "John Test"
     password "password"
     admin false
   end
@@ -8,6 +9,7 @@ FactoryGirl.define do
   factory :admin, class: User do
     email "Admin@test.com"
     password "password"
+    name "Admin Test"
     admin      true
   end
 

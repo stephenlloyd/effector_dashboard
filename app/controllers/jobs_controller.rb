@@ -7,6 +7,7 @@ class JobsController < ApplicationController
   end
 
   def new
+    @users = User.order(:name)
     @job = Job.new
   end
 

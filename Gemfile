@@ -41,6 +41,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5.0.beta3'
 
   gem 'factory_girl_rails'
+  gem 'launchy'
 
   gem 'cucumber-rails', :require => false
 # database_cleaner is not required, but highly recommended

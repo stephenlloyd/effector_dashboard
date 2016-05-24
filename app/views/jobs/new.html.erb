@@ -1,1 +1,7 @@
 New Job
+
+<%= form_for @job, url: {action: "create"} do |f| %>
+<%= f.text_field :title %>
+<%= f.collection_select :user, @users, :id, :name, include_blank: true %>
+<%= f.submit "Create" %>
+<% end %>
