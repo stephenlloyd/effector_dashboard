@@ -14,5 +14,4 @@ Feature: Jobs features
     Given I am signed in as "admin"
     And I visit "/jobs/new"
     When I fill in all details for a job
-    And assign to "user"
     Then they should see that job

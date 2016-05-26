@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resource :jobs
+  resources :jobs
   devise_for :users
 
 

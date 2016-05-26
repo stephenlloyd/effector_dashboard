@@ -1,7 +1,23 @@
 New Job
 
-<%= form_for @job, url: {action: "create"} do |f| %>
+<%= form_for @job, url: {action: "create", multipart: true} do |f| %>
 <%= f.text_field :title %>
+<%= f.text_field :description %>
+<%= f.text_field :notes %>
+<%= f.file_field :document %>
+<%= f.text_field :trade %>
+<%= f.text_field :assinging_company %>
+
+<%= f.fields_for :address do |address_form| %>
+        <%= address_form.text_field :name %>
+        <%= address_form.text_field :first_line %>
+        <%= address_form.text_field :second_line %>
+        <%= address_form.text_field :city%>
+        <%= address_form.text_field :county%>
+        <%= address_form.text_field :postcode%>
+        <%= address_form.text_field :notes%>
+    <% end %>
+
 <%= f.collection_select :user, @users, :id, :name, include_blank: true %>
 <%= f.submit "Create" %>
 <% end %>
