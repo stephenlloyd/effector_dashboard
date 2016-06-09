@@ -7,7 +7,7 @@ Things you may want to cover:
 
 * Ruby 2.3.1
 
-* System dependencies  ```gem install bundle```  ```bundle install```
+* System dependencies  ```gem install bundler```  ```bundle install```
 
 * Configuration
 
